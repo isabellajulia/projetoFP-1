@@ -20,4 +20,17 @@ def fluxoPesquisar(request):
 		totalPagar = 0
 
 		
+		try:
+			sql = "select * from caixas_conta where pessoa_id like %s and data >= '%s' and data <= '%s'" % (pessoaBusca, dataBuscaInicio, dataBuscaFim)
+			contas = Conta.objects.raw(sql)
+
+			for item in contas:
+				if item.tipo == 'E':
+					totalReceber = totalReceber + item.valor
+				else:
+					totalPagar = totalPagar + item.valor
+			except:
+				contas = [Conta(descricao='erro')]
+			return render(request, 'fluxos/fluxoListar.html'), {'contas': contas, 'nome':nome, 'pessoas': pessoas, 'totalReceber': totalReceber, 'totalPagar': totalPagar})
+
 # Create your views here.
