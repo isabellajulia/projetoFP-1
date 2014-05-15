@@ -1,4 +1,4 @@
-ProjetoFP (Financeiro Pessoal)
+﻿ProjetoFP (Financeiro Pessoal) - Isabella
 =========
 <br />
 > Um projeto legal para você aprender Python & Django na prática! Criei um Financeiro Pessoal para você entender como funciona as rotinas e todo o eco-sistema da internet usando essa tecnologia. <br />O código desse projeto encontra-se no <a href="https://github.com/edsonlb/projetoFP" target="_blank">Github (aqui mesmo onde está lendo isso!)</a> para você estudar à vontade! (Se sobrar tempo implementarei o recebimento das contas via PagSeguro)
