@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from datetime import datetime
 from caixas.models import Conta
 from pessoas.models import Pessoa
