@@ -5,11 +5,7 @@
 {% block conteudo %}
 
 <script type="text/javascript">
-	$(function() {
-		$('#datetimepicker1').datetimepicker({format: 'dd/MM/yyyy hh:mm:ss', language:'pt-BR'});
 
-	$('#datetimepicker2').datetimepicker({format: 'dd/MM/yyyy hh:mm:ss', language 'pt-BR'});
-	});
 
 	function Validar(form){
 		if(form.dataBuscaInicio.value==""|| form.dataBuscaFinal.value==""){alert("Verifique as datas preenchidas"); 
@@ -30,13 +26,13 @@
     <div class="form-group">
       <div class="row">
         <div class="col-md-5">          
-          <div id="datetimepicker1" class="input-append date " style="float: left; ">
+          <div  class="input-append date datetimepicker" style="float: left; ">
             <input type="text" name="dataBuscaInicio" style="height: 35px; width: 145px;" placeholder="De:">
             <span class="add-on" style="height: 35px;">
                 <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
             </span>
           </div>         
-          <div id="datetimepicker2" class="input-append date " >
+          <div  class="input-append date datetimepicker" >
             <input type="text" name="dataBuscaFinal" style="height: 35px; width: 145px;" placeholder="Até:">
             <span class="add-on" style="height: 35px;">
                 <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
@@ -83,7 +79,7 @@
 			{% for conta in contas %}
 			<tr>
 				<td> {{ conta.descricao }} </td>
-				<td> {{ conta.date|date:"d/m/Y"}}</td>
+				<td> {{ conta.data|date:"d/m/Y"}}</td>
 				<td> {{ conta.tipo }}</td>
 				<td> {{ conta.valor}} </td>
 				</tr>

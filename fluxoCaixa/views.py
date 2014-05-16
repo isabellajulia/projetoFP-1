@@ -10,8 +10,8 @@ def fluxoListar(request):
 def fluxoPesquisar(request):
     if  request.method =='POST': 
         pessoaBusca = request.POST.get ('pessoaBusca')
-        dataBuscaInicio = datetime.strptime(request.POST.get('dataBuscaInicio', ''), '%d/%m/%Y %H:%M:%S')
-        dataBuscaFim = datetime.strptime(request.POST.get('dataBuscaFim') , '%d/%m/%Y %H:%M:%S')
+        dataBuscaInicio = datetime.strptime(request.POST.get('dataBuscaInicio', ''), '%d/%m/%Y')
+        dataBuscaFim = datetime.strptime(request.POST.get('dataBuscaFinal', ''), '%d/%m/%Y')
 
         nome = Pessoa.objects.filter(id=pessoaBusca)
         pessoas = Pessoa.objects.all().order_by('nome')
@@ -19,7 +19,6 @@ def fluxoPesquisar(request):
         totalReceber = 0 
         totalPagar = 0
 
-        
         try:
             sql = "select * from caixas_conta where pessoa_id like %s and data >= '%s' and data <= '%s'" % (pessoaBusca, dataBuscaInicio, dataBuscaFim)
             contas = Conta.objects.raw(sql)
